@@ -2,9 +2,6 @@ use pyo3::prelude::*;
 use pyo3::types::PyDict;
 use pyo3::wrap_pymodule;
 
-mod submodule;
-use submodule::*;
-
 extern crate image;
 
 use image::GenericImageView;
@@ -12,7 +9,7 @@ use image::GenericImageView;
 #[pyfunction]
 fn grayscale(img: &str) -> PyResult<bool> {
 
-    let img = image::open(str).unwrap();
+    let img = image::open(img).unwrap();
 
     let grey = img.grayscale();
     // The dimensions method returns the images width and height.
