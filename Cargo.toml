@@ -1,7 +1,7 @@
 [package]
 authors = ["Michael Pascuzzi"]
 name = "imagefilters"
-version = "0.2.0"
+version = "0.3.0"
 description = "A project that incorporates a Rust image library and exposes it as a python module"
 edition = "2018"
 
