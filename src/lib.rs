@@ -1,6 +1,4 @@
 use pyo3::prelude::*;
-use pyo3::types::PyDict;
-use pyo3::wrap_pymodule;
 
 extern crate image;
 
