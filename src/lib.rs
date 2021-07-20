@@ -22,6 +22,6 @@ fn blur(img: &str, filename: &str, sigma: f32) -> PyResult<bool> {
 #[pymodule]
 fn filters(py: Python, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(grayscale, m)?)?;
-
+    m.add_function(wrap_pyfunction!(blur, m)?)?;
     Ok(())
 }
