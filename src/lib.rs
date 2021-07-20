@@ -5,19 +5,17 @@ extern crate image;
 use image::GenericImageView;
 
 #[pyfunction]
-fn grayscale(img: &str) -> PyResult<bool> {
-
+fn grayscale(img: &str, filename: &str) -> PyResult<bool> {
     let img = image::open(img).unwrap();
-
     let grey = img.grayscale();
-    // The dimensions method returns the images width and height.
-    println!("dimensions {:?}", img.dimensions());
+    grey.save(filename).unwrap();
+    Ok(true)
+}
 
-    // The color method returns the image's `ColorType`.
-    println!("{:?}", img.color());
-
-    // Write the contents of this image to the Writer in PNG format.
-    grey.save("test.png").unwrap();
+fn blur(img: &str, filename: &str, sigma: f32) -> PyResult<bool> {
+    let img = image::open(img).unwrap();
+    let grey = img.blur(sigma);
+    grey.save(filename).unwrap();
     Ok(true)
 }
 
